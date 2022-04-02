@@ -27,8 +27,8 @@ secuencia de pasos que se requieren para poder reproducir el defecto. Si en la e
 conjunto de imagenes o videos que complementan la información dada en el reporte.
 
 **Contexto**
- - Versión de la app
- - S​istema operativo. Windows XX, Mac XX, Ubuntu XX
+ - Versión de la app: 3.41.1
+ - S​istema Operativo: [Windows XX, Mac XX, Ubuntu XX]
  - B​rowser ( nombre y versión ): [all | Chrome XX | Firefox XX | IE XX | Safari XX | Mobile Chrome XX |  Android X.X Web Browser | iOS XX Safari | iOS XX UIWebView | iOS XX  WKWebView ]
 
 **Información Adicional**

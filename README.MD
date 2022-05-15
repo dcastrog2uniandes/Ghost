@@ -123,7 +123,7 @@ https://www.youtube.com/watch?v=tYY7FTV31vM
 
 ## Análisis y comentarios de las herramientas
 Ver la wiki:<br>
-[E2E Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/E2E-Testing)
+[E2E Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/E2E-Testing)<br>
 [VRT Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/VRT)
 
 ## Generar reportes VRT usando Resemble JS

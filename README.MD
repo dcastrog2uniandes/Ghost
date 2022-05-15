@@ -122,7 +122,7 @@ https://www.youtube.com/watch?v=tYY7FTV31vM
     Seleccione la carpeta **cypress-ghost** y vera que se listan todos los escenarios definidos para las pruebas, seleccione el que desea ejecutar
 
 ## Análisis y comentarios de las herramientas
-Ver la Wiki 
+Ver la [wiki](https://github.com/dcastrog2uniandes/Ghost/wiki/VRT)
 
 ## Generar reportes VRT usando Resemble JS
 

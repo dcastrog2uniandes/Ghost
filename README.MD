@@ -1,7 +1,10 @@
 # Pruebas E2E
 - Aplicación bajo pruebas: Ghost
+- Versiones: 4.35 y 4.44
 - API's de automatización: Kraken y Cypress
 - Pruebas VRT: ResembleJS
+
+
 
 ## Escenarios bajo prueba
 | Escenario | Descricpicón | VRT |
@@ -17,12 +20,11 @@
 | 9         | Hacer login, Ingresar con cuenta válida, Listar Posts, Crear Post, Listar Posts |No|
 | 10         | Hacer login, ingresar con cuenta válida, Listar Posts, Delete Post, Listar Posts |No|
 | 11         |  ||
-## Generar reportes RTV
 
+## Instalaciones necesarias
+
+### Instalación de Docker
 En primer lugar se deben instalar las dos versiones de Ghost. Una opción es instalar en su equipo local las dos images Docker, una por cada versión.
-
-## Instalación de Docker
-
 1. Para instalar Docker, descargue el ejecutable desde la página oficial y siga las instrucciones de acuerdo a su sistema operativo:
 
 **Windows:** https://docs.docker.com/desktop/windows/install/ <br>
@@ -54,7 +56,10 @@ services:
     expose:
       - 3002
 ```
-
+y ejecute el siguiente comando para desplegar el contenedor con ambas instancias: 
+```
+docker-compose up
+```
 3. Verifique en Docker Desktop que se haya creado un contenedor con las dos instancias de Ghost y que estén corriendo en puertos diferentes.
 
 ![image](https://user-images.githubusercontent.com/99267339/168453377-79e8e25a-3097-45c7-bd73-58e99d0687f8.png)
@@ -70,7 +75,7 @@ services:
  2. Inicie sesión y compruebe que puede acceder al dashboard de administración, en ambas instancias de Ghost.
 
 ## Instalar Node
-Para poder instalar las dos API's de automatización que se serán empleadas para ejecutar las pruebas, es necesario que tenga instalado el manejador de dependencias Node JS. Para esto, vaya a la pagina oficial, descarguelo y siuga las instrucciones:<br>
+Para poder instalar las dos API's de automatización que se serán empleadas para ejecutar las pruebas, es necesario que tenga instalado el manejador de dependencias Node JS. Para esto, vaya a la página oficial, descarguelo y siga las instrucciones:<br>
 **node:** https://nodejs.org/en/ 
 
 ## Instalar Kraken
@@ -84,14 +89,6 @@ npm install kraken-node -g
 ```
 npm install
 ```
-3. Finalmente, desde la raiz del proyecto, es decir, al nivel del archivo ```package.json``` ejecute el siguiente comando para correr las pruebas:
-```
-./node_modules/kraken-node/bin/kraken-node run
-```
-4. En caso de presentar errores, puede consultar la guia de instalación oficial de Kraken en el siguiente enlace: <br>
-https://thesoftwaredesignlab.github.io/AutTesingCodelabs/w5/krakenWeb/index.html <br>
-4.1. Si llega a presentar un error relacionado con **adb**, por favor haga la instalación como se sugiere en el siguiente vídeo: <br>
-https://www.youtube.com/watch?v=tYY7FTV31vM
 
 ## Instalar Cypress
 Dado que la instalación de Cypress tiene un tamaño significativo, se recomienda que, por lo general, quien vaya a utilizar un proyecto de Cypress cuente con las herramientas de forma global en su máquina. 
@@ -99,6 +96,20 @@ Dado que la instalación de Cypress tiene un tamaño significativo, se recomiend
 ```
 npm install -g cypress
 ```
+
+## Ejecutar pruebas E2E
+
+### Kraken
+1. Desde la raiz del proyecto, es decir, al nivel del archivo ```package.json``` ejecute el siguiente comando para correr las pruebas:
+```
+./node_modules/kraken-node/bin/kraken-node run
+```
+2. En caso de presentar errores, puede consultar la guia de instalación oficial de Kraken en el siguiente enlace: <br>
+https://thesoftwaredesignlab.github.io/AutTesingCodelabs/w5/krakenWeb/index.html <br>
+2.1. Si llega a presentar un error relacionado con **adb**, por favor haga la instalación como se sugiere en el siguiente vídeo: <br>
+https://www.youtube.com/watch?v=tYY7FTV31vM
+
+### Cypress
 2. Para ejecutar las pruebas tiene las siguientes dos opciones:<br>
 2.1. Modo headless: ingrese a la carpeta **cypress-ghost** y ejecute el siguiente comando: <br>
     ```
@@ -109,6 +120,10 @@ npm install -g cypress
     cypress open
     ```
     Seleccione la carpeta **cypress-ghost** y vera que se listan todos los escenarios definidos para las pruebas, seleccione el que desea ejecutar
+
+## Generar reportes VRT usando Resemble JS
+
+Resemble.js es una herramienta que permite realizar análisis visual sobre imágenes haciendo uso de JavaScript y HTML. Esta se distribuye como una librería de Node.js, permite extraer información sobre una imagen y también realizar comparaciones entre imágenes.
 
 ## Ejecución de las pruebas de Regresión Visual
 

@@ -1,3 +1,22 @@
+# Pruebas E2E
+- Aplicación bajo pruebas: Ghost
+- API's de automatización: Kraken y Cypress
+- Pruebas VRT: ResembleJS
+
+## Escenarios bajo prueba
+| Escenario | Descricpicón | VRT |
+|:------------:|:-------------|:-------------|
+| 1         | Hacer login, crear un nuevo miembro, ir al listado de miembros, seleccionarlo del listado y eliminarlo     |  Sí       |
+| 2         | Hacer login, ir al perfil, modificar los datos, guardar y verificar los cambios desde el listado de miembros     | No        |
+| 3         | Hacer login, crear nueva pagina, ir al listado de paginas, seleccionarla y eliminarla.|Sí|
+| 4         | Hacer login, ir a listado de tags, crer uno nuevo, ver que aparezca en el listado y seleccionarlo para ver el detalle.|Sí|
+| 5         | Hacer login, ir a configuración, ajustes generales y cambiar el tema del sitio. Ir a la pagina principal para ver el cambio. |No|
+| 6         | Hacer login, ingresar con cuenta válida, Listar Posts, Crear Post, Listar Posts |Sí|
+| 7         | Hacer login, ingresar con cuenta válida, Listar Posts, Delete Post, Listar Posts |Sí|
+| 8         | Hacer login, Ingresar con cuenta válida, Listar Posts, Editar Post, Listar Posts |Sí|
+| 9         | Hacer login, Ingresar con cuenta válida, Listar Posts, Crear Post, Listar Posts |No|
+| 10         | Hacer login, ingresar con cuenta válida, Listar Posts, Delete Post, Listar Posts |No|
+| 11         |  ||
 ## Generar reportes RTV
 
 En primer lugar se deben instalar las dos versiones de Ghost. Una opción es instalar en su equipo local las dos images Docker, una por cada versión.
@@ -90,3 +109,13 @@ npm install -g cypress
     cypress open
     ```
     Seleccione la carpeta **cypress-ghost** y vera que se listan todos los escenarios definidos para las pruebas, seleccione el que desea ejecutar
+
+## Ejecución de las pruebas de Regresión Visual
+
+una vez haya clonado este repositorio en su maquina local, ubiquese en la carpeta **RTV_ResembleJS** y ejecute el siguiente comando:
+
+```
+node index.js
+```
+
+Esto generará el reporte y la comparación de las respectivas imagenes para todos los escenarios definidos.

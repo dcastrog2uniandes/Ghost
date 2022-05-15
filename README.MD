@@ -121,6 +121,9 @@ https://www.youtube.com/watch?v=tYY7FTV31vM
     ```
     Seleccione la carpeta **cypress-ghost** y vera que se listan todos los escenarios definidos para las pruebas, seleccione el que desea ejecutar
 
+## Análisis y comentarios de las herramientas
+Ver la Wiki 
+
 ## Generar reportes VRT usando Resemble JS
 
 Resemble.js es una herramienta que permite realizar análisis visual sobre imágenes haciendo uso de JavaScript y HTML. Esta se distribuye como una librería de Node.js, permite extraer información sobre una imagen y también realizar comparaciones entre imágenes.

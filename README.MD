@@ -125,12 +125,45 @@ https://www.youtube.com/watch?v=tYY7FTV31vM
 
 Resemble.js es una herramienta que permite realizar análisis visual sobre imágenes haciendo uso de JavaScript y HTML. Esta se distribuye como una librería de Node.js, permite extraer información sobre una imagen y también realizar comparaciones entre imágenes.
 
-## Ejecución de las pruebas de Regresión Visual
 
+
+Tenga en cuenta que antes de ejecutar estas pruebas, primero debe haber ejecutado las pruebas en Kraken y Cypress, debido a que allí se generar los respectivos screenshots que serán utilizados por Resemble para la regresión visual. Los screenshots se encuentran en la siguiente ruta y tienen la siguiente estructura:<br>
+```
+Kraken/
+  reports/
+    scenario{{numero_escenario}}/
+      V4.35/
+        -1.png
+        -2.png
+        - ....
+        -n.png
+      V4.44
+        -1.png
+        -2.png
+        - ....
+        -n.png
+```
+Donde ```{{numero_escenario}}``` es el numero del escenario. Cada escenario contiene dos carpetas, una para cada versión y estas contienen los respectivos screenshots.
+
+## Ejecución de las pruebas de Regresión Visual
 una vez haya clonado este repositorio en su maquina local, ubiquese en la carpeta **RTV_ResembleJS** y ejecute el siguiente comando:
 
 ```
 node index.js
 ```
 
-Esto generará el reporte y la comparación de las respectivas imagenes para todos los escenarios definidos.
+Esto generará el reporte y la comparación de las respectivas imagenes para todos los escenarios definidos. Note que en la carpeta ```RTV_ResembleJS/results``` se encuentran las imagenes resultantes de la comparación y el reporte generado por cada escenario, el cual tiene la siguiente estructura:
+
+```
+RTV_ResembleJS/
+  reports/
+    scenario{{numero_escenario}}/
+      compare/
+        -compare-1.png
+        -compare-2.png
+        - ....
+        -compare-n.png
+        -index.txt
+        -report.html
+```
+En donde ```{{numero_escenario}}``` es el número del escenario. Cada carpeta ```scenario{{numero_escenario}}``` contiene una carpeta ```compare``` que aloja las imagenes comparadas y reporte html. 

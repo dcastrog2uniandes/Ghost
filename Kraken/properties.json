@@ -1,0 +1,10 @@
+{
+    "USERNAME": "d.castrog2@uniandes.edu.co",
+    "PASSWORD": "Mari123456",
+    "LOGINPAGE44": "http://localhost:3002/ghost/#/signin",
+    "LISTPOSTPAGE44": "http://localhost:3002/ghost/#/posts",
+    "NEWPOSTPAGE44": "http://localhost:3002/ghost/#/editor/post",
+    "LOGINPAGE43": "http://localhost:3001/ghost/#/signin",
+    "LISTPOSTPAGE43": "http://localhost:3001/ghost/#/posts",
+    "NEWPOSTPAGE43": "http://localhost:3001/ghost/#/editor/post"
+}

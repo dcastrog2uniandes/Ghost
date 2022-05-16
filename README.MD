@@ -142,7 +142,7 @@ Ver la wiki:<br>
 [VRT Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/VRT)
 
 ## Reporte de Issues
-Se evidenciaron 4 issues con las pruebas de regresión y para ver sus detalles vaya a la sección [issues](https://github.com/dcastrog2uniandes/Ghost/issues)
+Se evidenciaron varios issues al ejecutar las pruebas de regresión y para ver sus detalles vaya a la sección [issues](https://github.com/dcastrog2uniandes/Ghost/issues)
 
 ## Generar reportes VRT usando Resemble JS
 

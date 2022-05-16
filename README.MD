@@ -141,6 +141,9 @@ Ver la wiki:<br>
 [E2E Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/E2E-Testing)<br>
 [VRT Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/VRT)
 
+## Reporte de Issues
+Se evidenciaron 4 issues con las pruebas de regresión y para ver sus detalles vaya a la sección [issues](https://github.com/dcastrog2uniandes/Ghost/issues)
+
 ## Generar reportes VRT usando Resemble JS
 
 Resemble.js es una herramienta que permite realizar análisis visual sobre imágenes haciendo uso de JavaScript y HTML. Esta se distribuye como una librería de Node.js, permite extraer información sobre una imagen y también realizar comparaciones entre imágenes.

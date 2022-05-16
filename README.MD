@@ -141,8 +141,7 @@ Ver la wiki:<br>
 [E2E Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/E2E-Testing)<br>
 [VRT Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/VRT)
 
-## Reporte de Issues
-Se evidenciaron varios issues al ejecutar las pruebas de regresión y para ver sus detalles vaya a la sección [issues](https://github.com/dcastrog2uniandes/Ghost/issues)
+
 
 ## Generar reportes VRT usando Resemble JS
 
@@ -168,7 +167,7 @@ Kraken/
 ```
 Donde ```{{numero_escenario}}``` es el numero del escenario. Cada escenario contiene dos carpetas, una para cada versión y estas contienen los respectivos screenshots.
 
-## Ejecución de las pruebas de Regresión Visual
+### Ejecución de las pruebas de Regresión Visual
 una vez haya clonado este repositorio en su maquina local, ubiquese en la carpeta **RTV_ResembleJS** y ejecute el siguiente comando:
 
 ```
@@ -190,3 +189,6 @@ RTV_ResembleJS/
         -report.html
 ```
 En donde ```{{numero_escenario}}``` es el número del escenario. Cada carpeta ```scenario{{numero_escenario}}``` contiene una carpeta ```compare``` que aloja las imagenes comparadas y reporte html. 
+
+### Reporte de Issues
+Se evidenciaron varios issues al ejecutar las pruebas de regresión y para ver sus detalles vaya a la sección [issues](https://github.com/dcastrog2uniandes/Ghost/issues)

@@ -19,7 +19,16 @@
 | 8         | Hacer login, Ingresar con cuenta válida, Listar Posts, Editar Post, Listar Posts |Sí|
 | 9         | Hacer login, Ingresar con cuenta válida, Listar Posts, Crear Post, Listar Posts |No|
 | 10         | Hacer login, ingresar con cuenta válida, Listar Posts, Delete Post, Listar Posts |No|
-| 11         |  ||
+| 11         |Hacer login y eliminar un tag  |Sí|
+| 12         |Hacer login y reenviar un correo a un invitado  |Sí|
+| 13         |Hacer login, ir a settings, agregar un invitado y enviarle el email  |No|
+| 14         |Hacer login, ir al listado de miembros, seleccionar miembro y eliminarlo  |No|
+| 15         |Hacer login, ir al listado de miembros, seleccionar miembro, seleccionar la opción de eliminar y cancelar |No|
+| 16         |Hacer login, ir al listado de tags, crear un tag y seleccionarlo de la lista   |Sí|
+| 17         |Hacer login, ir a settings, luego a staff, seleccionar el usuario administador y cambiarle la contraseña  |Sí|
+| 18         |Hacer login, ir al listado de los post programados para publicar, seleccionar el primero y eliminarlo |No|
+| 19         |Hacer login, ir al listado de los post en borrador, seleccionar el primero y eliminarlo  |No|
+| 20         |Hacer login, ir al listado de miembros, seleccionar el primero y eliminarlo  |No|
 
 ## Instalaciones necesarias
 
@@ -70,8 +79,8 @@ docker-compose up
     
  ## Configuración inicial de Ghost
  1. La primera vez que corre Ghost de manera loca, debe crear el usuario administrador. Siga las instrucciones y por favor registre los siguientes datos:<br>
- **email:** ghost_uniandes@uniandes.edu.co <br>
- **contraseña:** PruebasA123
+ **email:** d.castrog2@uniandes.edu.co <br>
+ **contraseña:** Mari123456
  2. Inicie sesión y compruebe que puede acceder al dashboard de administración, en ambas instancias de Ghost.
 
 ## Instalar Node
@@ -100,13 +109,19 @@ npm install -g cypress
 ## Ejecutar pruebas E2E
 
 ### Kraken
-1. Desde la raiz del proyecto, es decir, al nivel del archivo ```package.json``` ejecute el siguiente comando para correr las pruebas:
+1. Al ejecutar las pruebas tenga presente que solo puede haber un archivos ```step.js```, pero actualmente se encuentra 4 archivos de ```step.js``` porque cada ingeniero automatizador realizó un total de 5 escenarios de prueba. Por lo tanto, es necesario dejar un único archivo al ejecutar las pruebas. La siguiente es la asignación de los archivos a los escenarios:<br><br>
+```step_1_5.js``` corresponde a: los escenarios 1 al 5 (tenga en cuenta que para cada escenario hay dos archivos, uno por cada versión)<br>
+```step_6_10.js``` corresponde a: los escenarios 6 al 10 (tenga en cuenta que para cada escenario hay dos archivos, uno por cada versión)<br>
+```step_11_15.js``` corresponde a: los escenarios 11 al 15 (tenga en cuenta que para cada escenario hay dos archivos, uno por cada versión)<br>
+```step_16_20.js``` corresponde a: los escenarios 16 al 20 (tenga en cuenta que para cada escenario hay dos archivos, uno por cada versión)<br>
+
+2. Desde la raiz del proyecto, es decir, al nivel del archivo ```package.json``` ejecute el siguiente comando para correr las pruebas:
 ```
 ./node_modules/kraken-node/bin/kraken-node run
 ```
-2. En caso de presentar errores, puede consultar la guia de instalación oficial de Kraken en el siguiente enlace: <br>
-https://thesoftwaredesignlab.github.io/AutTesingCodelabs/w5/krakenWeb/index.html <br>
-2.1. Si llega a presentar un error relacionado con **adb**, por favor haga la instalación como se sugiere en el siguiente vídeo: <br>
+3. En caso de presentar errores, puede consultar la guia de instalación oficial de Kraken en el siguiente enlace: <br>
+https://thesoftwaredesignlab.github.io/AutTesingCodelabs/w5/krakenWeb/index.html <br><br>
+3.1. Si llega a presentar un error relacionado con **adb**, por favor haga la instalación como se sugiere en el siguiente vídeo: <br>
 https://www.youtube.com/watch?v=tYY7FTV31vM
 
 ### Cypress
@@ -125,6 +140,8 @@ https://www.youtube.com/watch?v=tYY7FTV31vM
 Ver la wiki:<br>
 [E2E Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/E2E-Testing)<br>
 [VRT Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/VRT)
+
+
 
 ## Generar reportes VRT usando Resemble JS
 
@@ -150,7 +167,7 @@ Kraken/
 ```
 Donde ```{{numero_escenario}}``` es el numero del escenario. Cada escenario contiene dos carpetas, una para cada versión y estas contienen los respectivos screenshots.
 
-## Ejecución de las pruebas de Regresión Visual
+### Ejecución de las pruebas de Regresión Visual
 una vez haya clonado este repositorio en su maquina local, ubiquese en la carpeta **RTV_ResembleJS** y ejecute el siguiente comando:
 
 ```
@@ -172,3 +189,6 @@ RTV_ResembleJS/
         -report.html
 ```
 En donde ```{{numero_escenario}}``` es el número del escenario. Cada carpeta ```scenario{{numero_escenario}}``` contiene una carpeta ```compare``` que aloja las imagenes comparadas y reporte html. 
+
+### Reporte de Issues
+Se evidenciaron varios issues al ejecutar las pruebas de regresión y para ver sus detalles vaya a la sección [issues](https://github.com/dcastrog2uniandes/Ghost/issues)

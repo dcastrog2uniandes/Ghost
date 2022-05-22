@@ -100,7 +100,7 @@ npm install kraken-node -g
 npm install
 ```
 
-## Instalar Cypress
+### Instalar Cypress
 Dado que la instalación de Cypress tiene un tamaño significativo, se recomienda que, por lo general, quien vaya a utilizar un proyecto de Cypress cuente con las herramientas de forma global en su máquina. 
 1. Ejecute el siguiente comando para instalar Cypress de manera global: <br>
 ```
@@ -197,5 +197,5 @@ Las pruebas se realizarón para la versión de Ghost 4.44. Si aún no ha instala
 La explicación para correr las pruebas se encuentran en la Wiki: 
 
 
-### Reporte de Issues
+## Reporte de Issues
 Se evidenciaron varios issues al ejecutar las pruebas de regresión y para ver sus detalles vaya a la sección [issues](https://github.com/dcastrog2uniandes/Ghost/issues)

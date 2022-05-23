@@ -5,7 +5,6 @@
 - Pruebas VRT: ResembleJS
 
 
-
 ## Escenarios bajo prueba
 | Escenario | Descricpicón | VRT |
 |:------------:|:-------------|:-------------|
@@ -34,13 +33,15 @@
 
 ### Instalación de Docker
 En primer lugar se deben instalar las dos versiones de Ghost. Una opción es instalar en su equipo local las dos images Docker, una por cada versión.
-1. Para instalar Docker, descargue el ejecutable desde la página oficial y siga las instrucciones de acuerdo a su sistema operativo:
+Para instalar Docker, descargue el ejecutable desde la página oficial y siga las instrucciones de acuerdo a su sistema operativo:
 
 **Windows:** https://docs.docker.com/desktop/windows/install/ <br>
 **Linux:**   https://docs.docker.com/desktop/linux/install/ <br>
 **Mac:**     https://docs.docker.com/desktop/mac/install/
 
-2. Una vez instalado Docker Desktop, cree una carpeta e incluya un archivo llamado docker-compose.yaml con el siguiente código:
+### Instalar Ghost usando imagenes Docker
+
+1. Una vez instalado Docker Desktop, cree una carpeta e incluya un archivo llamado docker-compose.yaml con el siguiente código:
 
 ```
 version: "3.9"
@@ -69,25 +70,25 @@ y ejecute el siguiente comando para desplegar el contenedor con ambas instancias
 ```
 docker-compose up
 ```
-3. Verifique en Docker Desktop que se haya creado un contenedor con las dos instancias de Ghost y que estén corriendo en puertos diferentes.
+2. Verifique en Docker Desktop que se haya creado un contenedor con las dos instancias de Ghost y que estén corriendo en puertos diferentes.
 
 ![image](https://user-images.githubusercontent.com/99267339/168453377-79e8e25a-3097-45c7-bd73-58e99d0687f8.png)
 
- 4. Compruebe en su navegador la correcta ejecución de ambas instancias:<br>
+ 3. Compruebe en su navegador la correcta ejecución de ambas instancias:<br>
     Versión 4.44 = http://localhost:3002/ghost/ <br>
     Versión 4.35 = http://localhost:3001/ghost/
     
- ## Configuración inicial de Ghost
+ ### Configuración inicial de Ghost
  1. La primera vez que corre Ghost de manera loca, debe crear el usuario administrador. Siga las instrucciones y por favor registre los siguientes datos:<br>
  **email:** d.castrog2@uniandes.edu.co <br>
  **contraseña:** Mari123456
  2. Inicie sesión y compruebe que puede acceder al dashboard de administración, en ambas instancias de Ghost.
 
-## Instalar Node
+### Instalar Node
 Para poder instalar las dos API's de automatización que se serán empleadas para ejecutar las pruebas, es necesario que tenga instalado el manejador de dependencias Node JS. Para esto, vaya a la página oficial, descarguelo y siga las instrucciones:<br>
 **node:** https://nodejs.org/en/ 
 
-## Instalar Kraken
+### Instalar Kraken
 Kraken es una herramienta de código abierto para realizar pruebas automáticas del tipo E2E con aplicaciones móviles para Android y aplicaciones WEB
 1. Para instalar la herramienta, abra una terminal e ingrese el siguiente comando:
 
@@ -99,7 +100,7 @@ npm install kraken-node -g
 npm install
 ```
 
-## Instalar Cypress
+### Instalar Cypress
 Dado que la instalación de Cypress tiene un tamaño significativo, se recomienda que, por lo general, quien vaya a utilizar un proyecto de Cypress cuente con las herramientas de forma global en su máquina. 
 1. Ejecute el siguiente comando para instalar Cypress de manera global: <br>
 ```
@@ -190,5 +191,11 @@ RTV_ResembleJS/
 ```
 En donde ```{{numero_escenario}}``` es el número del escenario. Cada carpeta ```scenario{{numero_escenario}}``` contiene una carpeta ```compare``` que aloja las imagenes comparadas y reporte html. 
 
-### Reporte de Issues
+## Ejecutar pruebas con Generación de Datos
+Las pruebas se realizarón para la versión de Ghost 4.44. Si aún no ha instalado Ghost, por favor siga las instrucciones que se detallan en la sección **Instalaciones necesarias**
+
+La explicación para correr las pruebas se encuentran en la Wiki: 
+
+
+## Reporte de Issues
 Se evidenciaron varios issues al ejecutar las pruebas de regresión y para ver sus detalles vaya a la sección [issues](https://github.com/dcastrog2uniandes/Ghost/issues)

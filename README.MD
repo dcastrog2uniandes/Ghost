@@ -127,7 +127,7 @@ https://www.youtube.com/watch?v=tYY7FTV31vM
 
 ### Cypress
 2. Para ejecutar las pruebas tiene las siguientes dos opciones:<br>
-2.1. Modo headless: ingrese a la carpeta **cypress-ghost** y ejecute el siguiente comando: <br>
+2.1. Modo headless: ingrese a la carpeta ```Ghost/Cypress/cypress/integration/``` y ejecute el siguiente comando: <br>
     ```
     cypress run --headless
     ```
@@ -135,7 +135,7 @@ https://www.youtube.com/watch?v=tYY7FTV31vM
     ```
     cypress open
     ```
-    Seleccione la carpeta **cypress-ghost** y vera que se listan todos los escenarios definidos para las pruebas, seleccione el que desea ejecutar
+    Seleccione la carpeta ```Ghost/Cypress/cypress/integration/``` y vera que se listan todos los escenarios definidos para las pruebas, seleccione el que desea ejecutar
 
 ## Análisis y comentarios de las herramientas
 Ver la wiki:<br>

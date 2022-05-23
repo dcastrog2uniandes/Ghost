@@ -194,7 +194,7 @@ En donde ```{{numero_escenario}}``` es el número del escenario. Cada carpeta ``
 ## Ejecutar pruebas con Generación de Datos
 Las pruebas se realizarón para la versión de Ghost 4.44. Si aún no ha instalado Ghost, por favor siga las instrucciones que se detallan en la sección **Instalaciones necesarias**
 
-La explicación para correr las pruebas se encuentran en la Wiki: 
+La explicación para correr las pruebas se encuentran en la Wiki: [Data Validation Testing](https://github.com/dcastrog2uniandes/Ghost/wiki/Data-Validation-Testing)
 
 
 ## Reporte de Issues

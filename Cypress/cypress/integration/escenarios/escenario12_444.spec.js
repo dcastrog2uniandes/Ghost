@@ -18,9 +18,9 @@ describe('Loguearme y probar el reeenviar correo', () => {
 
     it('Reenviar correo', ()=>{
         //loguease
-        cy.get('#ember7').type('ghost_uniandes@uniandes.edu.co')
+        cy.get('#ember7').type('d.castrog2@uniandes.edu.co')
         cy.wait(1000)
-        cy.get('#ember9').type('PruebasA123')
+        cy.get('#ember9').type('Mari123456')
         cy.wait(1000)
         cy.screenshot(nombreArchivo())
         cy.get("button[id='ember11'] span").click()

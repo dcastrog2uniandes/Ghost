@@ -19,13 +19,13 @@ describe('Loguearme y Crear Staff', () => {
         //loguease
         cy.get('#ember7').type('d.castrog2@uniandes.edu.co')
         cy.wait(1000)
-        cy.get('#ember9').type('PruebasA123')
+        cy.get('#ember9').type('Mari123456')
         cy.wait(1000)
         cy.screenshot(nombreArchivo())
         cy.get("button[id='ember11'] span").click()
         cy.wait(2000)
         cy.screenshot(nombreArchivo())
-        cy.visit('https://ghost-uniandes.herokuapp.com/ghost/#/members')
+        cy.visit('http://localhost:3002/ghost/#/members')
         cy.wait(1000)
         cy.screenshot(nombreArchivo())
        

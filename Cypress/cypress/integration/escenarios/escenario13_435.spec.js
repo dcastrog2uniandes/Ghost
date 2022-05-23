@@ -41,9 +41,9 @@ describe('Loguearme y Crear Staff', () => {
       })
 
     it('Create an user and login', ()=>{
-        cy.get('#ember7').type( 'ghost_uniandes@uniandes.edu.co')
+        cy.get('#ember7').type( 'd.castrog2@uniandes.edu.co')
         cy.wait(1000)
-        cy.get('#ember9').type('PruebasA123')
+        cy.get('#ember9').type('Mari123456')
         cy.wait(1000)
         // Capturar Pantalla
 

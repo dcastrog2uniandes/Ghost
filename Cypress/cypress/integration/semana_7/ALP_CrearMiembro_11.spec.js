@@ -1,13 +1,15 @@
 // USANDO VERSION Ghost 4.44.0 
 const { faker } = require('@faker-js/faker');
-
+const urlProbar = "http://localhost:3002/ghost";
 
 let userData = {
   nombre:  faker.name.firstName()+' '+faker.name.lastName() ,
   primerNombre:faker.name.firstName(),
   apellido: faker.name.lastName() ,
   email:  faker.internet.email(),
-  password:  faker.name.firstName()
+  password:  faker.name.firstName(),
+  cadena: faker.company.companyName(),
+  cadenaLarga: faker.lorem.paragraphs().substring(0,500)
 }
 
 const numEscenario = "1";
@@ -19,15 +21,15 @@ function nombreArchivo()
 }
 
 
-describe('Loguearme y Crear Staff', () => {
+describe('Crear miembro con nota de 500 caracteres', () => {
     beforeEach(()=>{
-       cy.visit('http://localhost:3002/ghost')
+       cy.visit(urlProbar)
         cy.wait(1000)
        
     })
     
 
-    it('Eliminar miembro', ()=>{
+    it('Crear miembro con nota de 500 caracteres', ()=>{
         //loguease
         cy.get('#ember7').type('d.castrog2@uniandes.edu.co')
         cy.wait(1000)
@@ -39,22 +41,25 @@ describe('Loguearme y Crear Staff', () => {
         cy.wait(2000)
         // Capturar Pantalla
         cy.screenshot(nombreArchivo())
-        cy.visit('http://localhost:3002/ghost/#/members')
+        cy.visit(urlProbar+'/#/members')
         cy.wait(1000)
         // Capturar Pantalla
         cy.screenshot(nombreArchivo())
 
         //crear usuario de prueba
-        let member_name = userData.nombre
-        let member_email = userData.email
+
         cy.get('header.gh-canvas-header-content').within(() => {
             cy.wait(500)
             cy.get('a[href*="#/members/new/"]').click()
         })
         cy.wait(500)
         cy.get('form').within(() => {
-            cy.get('#member-name').type(member_name,{force: true})
-            cy.get('#member-email').type(member_email,{force: true})
+          
+        
+            cy.get('#member-name').type(userData.nombre,{force: true})
+            cy.get('#member-email').type(userData.email,{force: true})
+            cy.get('.ember-power-select-trigger-multiple-input').type(userData.cadena,{force: true})
+            cy.get('.gh-member-details-textarea').type(userData.cadenaLarga ,{force: true})
         })
         // Capturar Pantalla
         cy.screenshot(nombreArchivo())
@@ -79,7 +84,7 @@ describe('Loguearme y Crear Staff', () => {
 
         //Selecionar el creado
         cy.get('table').within(() => {
-            cy.get('tr').filter(`:contains(${member_name})`).click()
+            cy.get('tr').filter(`:contains(${userData.nombre})`).click()
         })
         cy.wait(1500)
 

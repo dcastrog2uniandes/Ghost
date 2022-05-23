@@ -1,5 +1,19 @@
 // USANDO VERSION Ghost 4.44.0 
 
+const { faker } = require('@faker-js/faker');
+
+
+let userData = {
+  nombre:  faker.name.firstName()+' '+faker.name.lastName() ,
+  primerNombre:faker.name.firstName(),
+  apellido: faker.name.lastName() ,
+  email:  faker.internet.email(),
+  password:  faker.name.firstName(),
+  cadena: faker.company.companyName(),
+  cadenaLarga: faker.lorem.text()
+}
+
+
 const numEscenario = "1";
 let seqImg = 0
 function nombreArchivo()
@@ -39,7 +53,43 @@ describe.only('Loguearme y eliminar tag', () => {
         cy.get("#ember29").click()
         cy.wait(1000)
         cy.screenshot(nombreArchivo())
-        cy.get("h3[class='gh-tag-list-name']:first").click()
+
+        //crear
+        //Redirected to dashboard
+        cy.wait(1000)
+        //Go to pages list
+        cy.get('nav.gh-nav  ').within(() => {
+            cy.wait(500)
+            cy.get('a[href*="#/tags/"]').parent().click()
+        })
+        cy.wait(500)
+        //Select New tag
+        cy.get('header.gh-canvas-header-content').within(() => {
+            cy.wait(500)
+            cy.get('a[href*="#/tags/new/"]').click()
+        })
+        cy.wait(500)
+        //Fill form tag
+        cy.get('form').within(() => {
+            cy.get('#tag-name').type(userData.cadenaLarga)
+           // cy.get('#tag-slug').type('_')
+           // cy.get('#tag-description').type(userData.cadenaLarga)
+        })
+        cy.wait(500)
+        //Click save tag
+        cy.get('button[type=button]').contains('Save').click()
+        cy.wait(1000)
+        //Go to list tags
+        cy.get('nav.gh-nav  ').within(() => {
+            cy.wait(500)
+            cy.get('a[href*="#/tags/"]').parent().click()
+        })
+        //Select created tag from list
+        cy.wait(1000)
+        cy.contains(userData.cadenaLarga).parent().click()
+
+        //borrar
+        
         cy.wait(1000)
         cy.screenshot(nombreArchivo())
         cy.get("button[class='gh-btn gh-btn-red gh-btn-icon']").click()

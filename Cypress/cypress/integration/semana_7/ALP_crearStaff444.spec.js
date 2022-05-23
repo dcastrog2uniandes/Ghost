@@ -19,7 +19,7 @@ function nombreArchivo()
   return `scenario${numEscenario}/Cypress_${numEscenario}_v444_${seqImg}`
 }
 
-describe('Loguearme y Crear Staff', () => {
+describe('Crear Staff - Aleatoria Positiva', () => {
     beforeEach(()=>{
        cy.visit('http://localhost:3002/ghost')
         cy.wait(1000)
@@ -36,7 +36,7 @@ describe('Loguearme y Crear Staff', () => {
         // errors, so we let them fail the test
       })
 
-    it('Create an user and login', ()=>{
+    it('Crear Staff Correctamente', ()=>{
         cy.get('#ember7').type('d.castrog2@uniandes.edu.co')
         cy.wait(1000)
         cy.get('#ember9').type('Mari123456')

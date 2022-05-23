@@ -1,16 +1,16 @@
 
-const numEscenario = "1";
+const numEscenario = "XX";
 let seqImg = 0
 function nombreArchivo()
 {
   seqImg++
-  return `scenario${numEscenario}/Cypress_${numEscenario}_v435_${seqImg}`
+  return `scenario${numEscenario}/Cypress_${numEscenario}_v444_${seqImg}`
 }
 
 
 describe('Loguearme y probar el reeenviar correo', () => {
     beforeEach(()=>{
-       cy.visit('http://localhost:3001/ghost')
+       cy.visit('http://localhost:3002/ghost')
         cy.wait(1000)
        
     })
@@ -27,7 +27,7 @@ describe('Loguearme y probar el reeenviar correo', () => {
         cy.wait(2000)
       
         // listar  los del staff
-        cy.visit('http://localhost:3001/ghost/#/settings/staff')
+        cy.visit('http://localhost:3002/ghost/#/settings/staff')
         cy.wait(1000)
         cy.screenshot(nombreArchivo())
        
@@ -38,7 +38,9 @@ describe('Loguearme y probar el reeenviar correo', () => {
         cy.wait(1500)
         cy.screenshot(nombreArchivo())
  
-       
+        cy.get('div.gh-alert-content').should('contain', 'Error')
+ 
+        
        
        
       //  cy.get('.red').click()

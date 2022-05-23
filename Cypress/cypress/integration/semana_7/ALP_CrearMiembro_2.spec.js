@@ -1,6 +1,6 @@
 // USANDO VERSION Ghost 4.44.0 
 const { faker } = require('@faker-js/faker');
-
+const urlProbar = "http://localhost:3002/ghost";
 
 let userData = {
   nombre:  faker.name.firstName()+' '+faker.name.lastName() ,
@@ -19,15 +19,15 @@ function nombreArchivo()
 }
 
 
-describe('Loguearme y Crear Staff', () => {
+describe('Crear miembro solo con el email', () => {
     beforeEach(()=>{
-       cy.visit('http://localhost:3002/ghost')
+       cy.visit(urlProbar)
         cy.wait(1000)
        
     })
     
 
-    it('Eliminar miembro', ()=>{
+    it('Crear miembro solo con el email', ()=>{
         //loguease
         cy.get('#ember7').type('d.castrog2@uniandes.edu.co')
         cy.wait(1000)
@@ -39,7 +39,7 @@ describe('Loguearme y Crear Staff', () => {
         cy.wait(2000)
         // Capturar Pantalla
         cy.screenshot(nombreArchivo())
-        cy.visit('http://localhost:3002/ghost/#/members')
+        cy.visit(urlProbar+'/#/members')
         cy.wait(1000)
         // Capturar Pantalla
         cy.screenshot(nombreArchivo())
@@ -53,7 +53,7 @@ describe('Loguearme y Crear Staff', () => {
         })
         cy.wait(500)
         cy.get('form').within(() => {
-            cy.get('#member-name').type(member_name,{force: true})
+           // cy.get('#member-name').type(member_name,{force: true})
             cy.get('#member-email').type(member_email,{force: true})
         })
         // Capturar Pantalla
@@ -67,43 +67,44 @@ describe('Loguearme y Crear Staff', () => {
         // Capturar Pantalla
         cy.screenshot(nombreArchivo())
 
-        //ver lista de mimbros
-        cy.get('nav.gh-nav  ').within(() => {
-            cy.wait(500)
-            cy.get('a[href*="#/members/"]').parent().click()
-        })
-        
-        cy.wait(1000)
-        // Capturar Pantalla
-        cy.screenshot(nombreArchivo())
-
-        //Selecionar el creado
-        cy.get('table').within(() => {
-            cy.get('tr').filter(`:contains(${member_name})`).click()
-        })
-        cy.wait(1500)
-
- 
-        cy.get("header.gh-canvas-header-content").within(() => {
-            cy.wait(500)
-            cy.get('button[role=button]').click()
-            cy.wait(500)
-            cy.get('ul').within(() => {
-                cy.get('li').filter(':contains("Delete member")').click()
+              //ver lista de mimbros
+              cy.get('nav.gh-nav  ').within(() => {
+                cy.wait(500)
+                cy.get('a[href*="#/members/"]').parent().click()
             })
-        }
-        )
-        // Capturar Pantalla
-        cy.screenshot(nombreArchivo())
-
-        cy.get('div.fullscreen-modal').within(() => {
-            cy.wait(500)
-            cy.get('button').filter(':contains("Delete member")').last().click()
-        })
-
-      //  cy.get('.red').click()
-        // Capturar Pantalla
-        cy.screenshot(nombreArchivo())
+            
+            cy.wait(1000)
+            // Capturar Pantalla
+            cy.screenshot(nombreArchivo())
+    
+            //Selecionar el creado
+            cy.get('table').within(() => {
+                cy.get('tr').filter(`:contains(${member_email})`).click()
+            })
+            cy.wait(1500)
+    
+     
+            cy.get("header.gh-canvas-header-content").within(() => {
+                cy.wait(500)
+                cy.get('button[role=button]').click()
+                cy.wait(500)
+                cy.get('ul').within(() => {
+                    cy.get('li').filter(':contains("Delete member")').click()
+                })
+            }
+            )
+            // Capturar Pantalla
+            cy.screenshot(nombreArchivo())
+    
+            cy.get('div.fullscreen-modal').within(() => {
+                cy.wait(500)
+                cy.get('button').filter(':contains("Delete member")').last().click()
+            })
+    
+          //  cy.get('.red').click()
+            // Capturar Pantalla
+            cy.screenshot(nombreArchivo())
+          
        
         
     })

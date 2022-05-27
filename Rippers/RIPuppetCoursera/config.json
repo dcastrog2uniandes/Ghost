@@ -1,0 +1,12 @@
+{
+    "url": "https://ghost-uniandes.herokuapp.com/",
+    "headless": true,
+    "depthLevels": 1,
+    "inputValues": false,
+    "values": {"userInput": "d.castrog2@uniandes.edu.co",
+        "passwordInput": "PruebasA123",
+        "passwordTwoInput": "PruebasA123",
+        "nameInput": "d.castrog2@uniandes.edu.co",
+        "emailInput": "d.castrog2@uniandes.edu.co"},
+    "browsers": ["chromium", "webkit", "firefox"]
+}

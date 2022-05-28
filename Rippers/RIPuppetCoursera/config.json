@@ -5,5 +5,7 @@
     "inputValues": true,
     "values": {"ember7": "d.castrog2@uniandes.edu.co",
         "ember9": "Mari123456"},
-    "browsers": ["chromium"]
+    "browsers": ["chromium"],
+    "viewportHeight": 800,
+    "viewportWidth": 1200
 }

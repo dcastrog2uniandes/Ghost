@@ -11,6 +11,7 @@ const beforeInteraction = 'BEFORE';
 const afterInteraction = 'AFTER';
 var temp_directory = './temp'; //Stores the visitedDOMs
 var graphFilenameRoot = 'graph';
+var screenshotsError = './screenshotsError'
 
 //Get configuration parameters.
 let config = require('./config.json');
@@ -41,9 +42,9 @@ if(inputValuesFlag === true){
     inputValues.push(values[key]);
   });
 }
+
 console.log(ids);
 console.log(inputValues);
-
 
   //Main execution
   (async () => {
@@ -58,6 +59,8 @@ console.log(inputValues);
       console.log(b);
       let basePath = `./results/${datetime}/${b}`
       screenshots_directory = `${basePath}/screenshots`;
+      screenshotsError = `${basePath}/screenshotsError`;
+
       temp_directory = `${basePath}/temp` + b;
       graphFilenameRoot = `${basePath}/graph`;
       //Launch the current browser context
@@ -81,6 +84,15 @@ console.log(inputValues);
       else{
         clean(temp_directory)
       }
+
+      if (!fs.existsSync(screenshotsError)){
+        fs.mkdirSync(screenshotsError);
+      }
+      else{
+        clean(screenshotsError)
+      }
+
+      
 
       //-------------------------------------------------------------------------------------------------------------------------------------------------
       //Web application ripping
@@ -132,7 +144,7 @@ async function recursiveExploration(page, link, depth, parentState){
     return;
   } 
   console.log("Exploring");
-  await page.goto(link, {waitUntil: 'networkidle2'}).catch((err)=>{
+  await page.goto(link, {waitUntil: 'networkidle2', timeout: '7000' }).catch((err)=>{
     console.log(err); 
     return; 
   });
@@ -374,9 +386,15 @@ async function getButtons(page, elementList){
   let buttons = await page.$$('button');
   let button;
   for (let i = 0; i < buttons.length ; i++ ){
+    /*
+    let disabled = page.evaluate((btn)=>{
+      return typeof btn.getAttribute("disabled") === "string" || btn.getAttribute("aria-disabled") === "true";
+    }, buttons[i]);
+    */
     let disabled = await page.evaluate((btn)=>{
       return typeof btn.getAttribute("disabled") === "string" || btn.getAttribute("aria-disabled") === "true";
     }, buttons[i]);
+    
     if(!disabled){
       button = {
         'type' : 'button',
@@ -489,7 +507,7 @@ async function interactWithObject(object, page, currentState, interactionNumber,
                     fullPage: true});
         }
         else{
-          fs.unlinkSync(screenshots_directory + '/' + 'state_' + currentState + '_interaction_' + (statesDiscovered) + beforeInteraction + '.png',
+           fs.unlinkSync(screenshots_directory + '/' + 'state_' + currentState + '_interaction_' + (statesDiscovered) + beforeInteraction + '.png',
             err=>{if(err) console.log(err)})
         }
         await page.evaluate(_ => {
